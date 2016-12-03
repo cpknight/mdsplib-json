@@ -13,7 +13,7 @@ LIBS =
 
 library: libmetar.a
 
-all: metar_test library
+all: metar_test library clwrapper
 
 libmetar.a: src/antoi.o src/charcmp.o src/decode_metar.o src/decode_metar_remark.o src/fracpart.o src/print_decoded_metar.o src/stspack2.o src/stspack3.o
 	ar ruv libmetar.a src/antoi.o src/charcmp.o src/decode_metar.o src/decode_metar_remark.o src/fracpart.o src/print_decoded_metar.o src/stspack2.o src/stspack3.o
@@ -48,6 +48,9 @@ src/stspack2.o: src/stspack2.c src/local.h
 
 src/stspack3.o: src/stspack3.c src/local.h
 	$(CC) $(CFLAGS) -c src/stspack3.c -o src/stspack3.o
+	
+clwrapper: src/decodeMETAR.c
+	$(CC) -o src/decodeMETAR src/decodeMETAR.c libmetar.a
 
 clean:
 	rm -f src/*.o metar_test libmetar.a
@@ -58,4 +61,4 @@ install: library
 	cp libmetar.a /usr/local/lib/
 	chmod 0644 /usr/local/lib/libmetar.a
 	ranlib /usr/local/lib/libmetar.a
-
+	install -m 0755 src/decodeMETAR /usr/local/bin
