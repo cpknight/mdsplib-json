@@ -5,7 +5,7 @@ METAR is a format for reporting weather information that is commonly used in avi
 
 mdsplib parses metars into a data structure that breaks out different weather conditions such as winds, clouds, visibility, temperature, and dew point.  Many weather conditions are included such as rain, snow, lightning, smoke, haze, fog, hail and thunderstorms.
 
-This is a fork from (flightaware/mdsplib)[https://github.com/flightaware/mdsplib] which includes the following:
+This is a fork from [flightaware/mdsplib](https://github.com/flightaware/mdsplib) which includes the following:
 
   - updates to `print_decoded_metar()` to output the decoded METAR in JSON format. 
   - a command-line wrapper for `decode_metar()` called `decodeMETAR` which spits out the ouput on the command line. 
