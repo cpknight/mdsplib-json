@@ -5,7 +5,7 @@ METAR is a format for reporting weather information that is commonly used in avi
 
 mdsplib parses metars into a data structure that breaks out different weather conditions such as winds, clouds, visibility, temperature, and dew point.  Many weather conditions are included such as rain, snow, lightning, smoke, haze, fog, hail and thunderstorms.
 
-This is a fork from [flightaware/mdsplib](https://github.com/flightaware/mdsplib) which includes the following:
+This is a fork from [flightaware/mdsplib](https://github.com/flightaware/mdsplib) and includes the following:
 
   - updates to `print_decoded_metar()` to output the decoded METAR in JSON format. 
   - a command-line wrapper for `decode_metar()` called `decodeMETAR` which spits out the ouput on the command line. 
@@ -20,7 +20,7 @@ Please read the file README.MDSP included in this package. It's the README that 
 
 ### COMPILING
 
-Switch into the mdsplib directory and run "make". If you also want the test program to be produced, run "make metar_test" instead. Both commands will produce "metar.a". This is the library. The header file for this library is "metar.h". The test application will be named "dmetar", it takes no parameters.
+Switch into the mdsplib directory and run "make". If you also want the test program to be produced, run "make metar_test" instead. Both commands will produce "metar.a". This is the library. The header file for this library is "metar.h". The test application will be named "dmetar", it takes no parameters. Use `make clwrapper` to make the command-line wrapper.
 
 "make install" will install the include file to /usr/local/include and the library to /usr/local/lib by default.  There is no modern autoconf or cmake-style build architecture so you are limited to editing the source by hand to get it to build on odd operating systems and/or architectures.  This isn't super likely or won't take much, though, as it is pretty much sstraight C and doesn't delve into the operating system very much.
 
